@@ -1,4 +1,6 @@
-procedure simulation-map is
+protected Map is
 begin
    
-end simulation-map;
+   null;
+   
+end Map;

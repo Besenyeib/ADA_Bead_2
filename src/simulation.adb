@@ -39,7 +39,7 @@ procedure Simulation is
    end Ship;
 
    -------------PROJECTILE
-   separate procedure Projectile(size : Integer);
+   separate procedure Projectile(size : Integer, Side : Sides);
 
 
    -------------MAP
@@ -57,6 +57,8 @@ procedure Simulation is
       end record;
 
       type MapM is array (Integer range <>, Integer range <>) of MapTile;
+
+   end Map;
 
 
 
