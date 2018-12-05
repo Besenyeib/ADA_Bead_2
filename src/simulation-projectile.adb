@@ -9,6 +9,7 @@ begin
    else
       if Map.GetShip(coordinate).Stat = True then
          Map.GetShip(coordinate).Hit;
+         
       end if;
    end if;
 end Projectile;
