@@ -33,7 +33,7 @@ A hajó (Ship) diszkriminánsa egy azonosító, valamint a hovatartozása legyen
 Ha a fenti két hívás nem történt meg 0.5 másodpercen belül, indítson útjára egy lövedéket (Projectile), majd kezdje előről a folyamatot.
 
 Lövedék
-A lövedék (a filmhez hűen) véletlenszerűen generál (Safe_Printer-t használva) egy célpontkoordinátát, ahol ha ott az ellenfél hajója tartózkodik, meghívja annak a Hit belépési pontját. Figyeljünk, hogy csak akkor próbálkozzunk, ha a célpont nem terminált.
+A lövedék (a filmhez hűen) véletlenszerűen generál (Safe_Random-ot használva) egy célpontkoordinátát, ahol ha ott az ellenfél hajója tartózkodik, meghívja annak a Hit belépési pontját. Figyeljünk, hogy csak akkor próbálkozzunk, ha a célpont nem terminált.
 
 Pálya
 A szimuláció központi eleme egy Map védett egység, mely a pálya mátrixreprezentációját tartalmazza. A mátrix elemei rekordok, melyek a hajókra mutató mutatókat, illetve azok státuszát megadó logikai értéket tartalmaznak.
@@ -42,10 +42,10 @@ Adjon lekérdezőműveletet a pálya elemeire, módosító műveletet a státusz
 
 A pályának legyen egy Init eljárása, mely a pálya baloldalát Imperial, a jobboldalát Rebel hajókkal tölti fel. Ezt követően küldje el a bázisoknak a hajók számát.
 
-Legyen továbbá egy End_Fight eljárása is a Map-nek, ezt valamelyik bázis fogja meghívni, ha az épp terminálás előtt áll. Az End_Fight a csata végét jelzi, így ebben az alprogramban a megmaradt hajók visszahívásáról kell gondoskodni. A visszahívást egy ágens taszk segítségével valósítsa meg, melynek diszkriminánsa a hajó mutatója legyen.
+Legyen továbbá egy End_Fight eljárása is a Map-nek, ezt valamelyik bázis fogja meghívni, ha az épp terminálás előtt áll. Az End_Fight a csata végét jelzi, így ebben az alprogramban a megmaradt hajók visszahívásáról kell gondoskodni. A visszahívást egy ágens taszk segítségével valósítsa meg, melynek diszkriminánsa a hajó mutatója legyen. Az ágens (agent) taszk egy olyan taszk típus legyen, melyet dinamikusan hozunk létre, és a feladata annyi, hogy meghívja a paraméterként kapott Ship-et a Call_Back belépési pontján keresztül. Ha ez egy másodpercen belül nem sikerül, akkor feltehetjük, hogy a hajó már terminált, így az ágnesnek nincs több dolga.
 
 A szimuláció
 A főprogramban példányosítson két bázist (Death_Star és Rebel_Base), mindkét oldalnak, illetve hívja meg a Map.Init eljárást, mellyel megkezdődik a csata. A szimulációt futtassa egy 10 * 10-es pályán. (Itt nem érdemes addig folytatni a feladat megoldását, amíg a fentiek nem működnek tökéletesen.)
 
 Luke Skywalker
-A csata kezdetétől eltelt öt másodperc után jelenjen meg Luke_Skywalker, aki ugyanúgy egy hajó típusú egység lesz. Luke célja a Death_Starelpusztítása, annak Destroy belépési pontjának meghívásával. Ehhez picit módosítani kell a Ship implementációját, a lövés helyett Luke generáltasson két random számot (ez [1..Max], ahol Max a pálya mérete), melyek ha megegyeznek, akkor megérezte, hogy vele van az erő, és el tudja találni a Death_Star gyenge pontját, elpusztítva azt. Ellenkező esetben nem érzi még az erőt, és ebben a pillanatban nem csinál semmit.
+A csata kezdetétől eltelt öt másodperc után jelenjen meg Luke_Skywalker, aki ugyanúgy egy Ship típusú egység lesz. Luke célja a Death_Starelpusztítása, annak Destroy belépési pontjának meghívásával. Ehhez picit módosítani kell a Ship implementációját, amiben ha Luke-ként van példányosítva a Ship (ezt tudjuk pl ID alapján), akkor egy speciális lövedékkel tüzeljen. Az átlagos lövés helyett Luke generáltasson két random számot (1 és a pálya mérete között), melyek ha megegyeznek, akkor megérezte, hogy vele van az erő, és el tudja találni a Death_Star gyenge pontját, elpusztítva azt. Ellenkező esetben nem érzi még az erőt, és ebben a pillanatban nem csinál semmit.
