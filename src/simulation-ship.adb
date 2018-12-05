@@ -16,7 +16,7 @@ begin
          end Call_Back;
       or
          delay 0.5;
-         --Projectile dolog
+         Projectile(Map.s,Side);
       end select;
 
    end loop;
