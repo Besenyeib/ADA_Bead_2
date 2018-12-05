@@ -12,7 +12,7 @@ procedure Simulation is
    end record;
 
    -------------SAFE RANDOM
-   separate protected Safe_Random is
+   separate protected Safe_Random(size: Integer) is
       function RandCoord return Coord;
    end Safe_Random;
 
@@ -29,14 +29,17 @@ procedure Simulation is
       entry Destroy;
    end Base;
 
+   RBase : Base(Rebel);
+   IBase : Base(Imperial);
+
    -------------SHIP
    separate task type Ship(Azon: Integer, Side: Sides) is
       entry Hit;
       entry Call_Back;
-   end Ship;y
+   end Ship;
 
    -------------PROJECTILE
-   separate task Projectile;
+   separate procedure Projectile(size : Integer);
 
 
    -------------MAP
@@ -54,6 +57,7 @@ procedure Simulation is
       end record;
 
       type MapM is array (Integer range <>, Integer range <>) of MapTile;
+
 
 
 

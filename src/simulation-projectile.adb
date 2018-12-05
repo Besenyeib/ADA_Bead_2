@@ -1,4 +1,4 @@
-procedure simulation-projectile is
+procedure Projectile(size : Integer)is
 begin
    
-end simulation-projectile;
+end Projectile;
