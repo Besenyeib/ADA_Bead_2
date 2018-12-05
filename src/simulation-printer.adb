@@ -17,6 +17,7 @@ protected body Printer is
                Ada.Text_IO.Put("  ");
             end if;
          end loop;
+         
          Ada.Text_IO.Put_Line("");
       end loop;
    end;

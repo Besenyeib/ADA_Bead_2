@@ -4,6 +4,7 @@ procedure Simulation is
    type Sides is (Rebel,Imperial);
 
    type ShipPointer is access Ship;
+   ShipP : ShipPointer;
 
    type Coord is record
       X: Natural;
@@ -32,7 +33,7 @@ procedure Simulation is
    separate task type Ship(Azon: Integer, Side: Sides) is
       entry Hit;
       entry Call_Back;
-   end Ship;
+   end Ship;y
 
    -------------PROJECTILE
    separate task Projectile;
