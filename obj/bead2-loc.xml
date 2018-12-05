@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Gnat\bin\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Gnat\bin\src\map_package.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Gnat\bin\src\warrior_package.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 25" >
+      <vfs_project />
+      <vfs_file>C:\Gnat\bin\src\bag_package.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 4" >
+      <vfs_project />
+      <vfs_file>C:\Gnat\bin\src\dice_ bag.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-printer.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 16" line=" 12" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-safe_random.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-map.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 4" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-map.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-ship.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-base.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-projectile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation-agent.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Bence\Documents\ADA\BEAD2\bead2.gpr</vfs_project>
+      <vfs_file>C:\Users\Bence\Documents\ADA\BEAD2\src\simulation.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>
