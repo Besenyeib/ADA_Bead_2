@@ -1,5 +1,5 @@
 separate(simulation)
-protected Map is
+protected body Map is
    function GetShip(c : Coord) return ShipPointer is
       return MapM(c.X,c.Y).SP;
    end GetShip;

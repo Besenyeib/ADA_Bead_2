@@ -3,8 +3,8 @@ procedure Simulation is
    type Sides is (Rebel,Imperial);
 
    type Coord is record
-      X: Natural;
-      Y: Natural;
+      X: Integer;
+      Y: Integer;
    end record;
 
    -------------SAFE RANDOM
@@ -16,17 +16,8 @@ procedure Simulation is
    protected body Safe_Random is separate;
 
 
-   -------------BASE
-   task type Base(Side: Sides) is
-      entry Send_Out_Ships(n: in Integer);
-      entry Ship_Lost;
-      entry Destroy;
-   end Base;
-
-   task body Base is separate;
-
-   RBase : Base(Rebel);
-   IBase : Base(Imperial);
+   -------------PROJECTILE
+   procedure Projectile(size : Integer; Side : Sides) is separate;
 
    -------------SHIP
    task type Ship(Azon: Integer; Side: Sides) is
@@ -39,9 +30,17 @@ procedure Simulation is
    type ShipPointer is access Ship;
    ShipP : ShipPointer;
 
-   -------------PROJECTILE
-   procedure Projectile(size : Integer; Side : Sides) is separate;
+   -------------BASE
+   task type Base(Side: Sides) is
+      entry Send_Out_Ships(n: in Integer);
+      entry Ship_Lost;
+      entry Destroy;
+   end Base;
 
+   task body Base is separate;
+
+   RBase : Base(Rebel);
+   IBase : Base(Imperial);
 
    -------------MAP
    type MapTile  is record

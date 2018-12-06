@@ -1,9 +1,8 @@
 separate(simulation)
-procedure Projectile(size : Integer, Side : Sides)is
+procedure Projectile(size : Integer; Side : Sides) is
    coordinate : Coord;
 begin
-   coordinate.X = Safe_Random(size);
-   coordinate.Y = Safe_Random(size);
+   coordinate := Safe_Random.RandCoord(size);
    
    If Map.GetShip(coordinate).Side = Side then
       null;
