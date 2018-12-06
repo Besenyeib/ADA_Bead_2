@@ -16,15 +16,16 @@ begin
             if ShipCount = 0 then
                Ada.Text_IO.Put(Text_IO'Image(Side));
                Ada.Text_IO.Put("s Lost");
+               Map.EndFight;
                exit;
             end if;
          end Ship_Lost;
       or
          accept Destroy do
-            
             ShipCount := 0;
-            
-            -- Hajók terminálása?
+            Ada.Text_IO.Put(Text_IO'Image(Side));
+            Ada.Text_IO.Put("s Lost");
+            Map.EndFight;
          end Destroy;
       end select;
    end loop;

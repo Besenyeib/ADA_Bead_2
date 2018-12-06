@@ -12,11 +12,11 @@ procedure Simulation is
 
    -------------SAFE RANDOM
 
-   --separate protected Safe_Random(size: Integer) is
-   --   function RandCoord return Coord;
-   --end Safe_Random;
+   separate protected Safe_Random(size: Integer) is
+      function RandCoord return Coord;
+   end Safe_Random;
 
-   protected Safe_Random is separate;
+   --protected Safe_Random is separate;
 
    -------------PRINTER
    separate protected Printer is
@@ -49,7 +49,7 @@ procedure Simulation is
       function GetShip(c : Coord) return ShipPointer;
       function GetStat(c : Coord) return Boolean;
       procedure Init(n : in Integer);
-      procedure EndFight
+      procedure EndFight;
 
       private
 

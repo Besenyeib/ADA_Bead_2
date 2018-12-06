@@ -1,0 +1,9 @@
+simulation.adb:15:04: declaration expected
+simulation.adb:22:04: declaration expected
+simulation.adb:28:04: declaration expected
+simulation.adb:38:04: declaration expected
+simulation.adb:44:04: declaration expected
+simulation.adb:48:04: declaration expected
+simulation.adb:58:07: illegal declaration in protected definition
+simulation.adb:61:07: no "record" for this "end record"
+simulation.adb:63:07: declarations must come before "begin"
