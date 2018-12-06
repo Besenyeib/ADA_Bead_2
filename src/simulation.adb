@@ -2,6 +2,7 @@ procedure Simulation is
 
    type Sides is (Rebel,Imperial);
 
+
    type Coord is record
       X: Integer;
       Y: Integer;
@@ -17,7 +18,8 @@ procedure Simulation is
 
 
    -------------PROJECTILE
-   procedure Projectile(size : Integer; Side : Sides) is separate;
+   procedure Projectile;
+
 
    -------------SHIP
    task type Ship(Azon: Integer; Side: Sides) is
@@ -71,6 +73,8 @@ procedure Simulation is
    end Printer;
 
    protected body Printer is separate;
+
+   procedure Projectile(size : Integer; Side : Sides) is separate;
 
 
    -------------ÁGNES
