@@ -1,14 +1,15 @@
 with Ada.Text_IO;
+separate(simulation)
 protected body Printer is
    procedure PrintText(txt: in String) is
    begin
       Ada.Text_IO.Put_Line(txt);
    end;
    
-   procedure PrintMap(m: in MapM) is
+   procedure PrintMap(m: in MapType) is
    begin
-      for I in 1..m'Length(1) loop //TODO
-         for J in 1..m'Length(2) loop //TODO
+      for I in 1..m'Length(1) loop 
+         for J in 1..m'Length(2) loop 
             if m(I,J).SP.Side = Rebel then
                Ada.Text_IO.Put("R ");
             elsif m(I,J).SP.Side = Imperial then
@@ -20,4 +21,5 @@ protected body Printer is
          
          Ada.Text_IO.Put_Line("");
       end loop;
-   end;
+   end PrintMap;
+end Printer;

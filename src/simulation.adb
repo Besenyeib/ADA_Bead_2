@@ -2,9 +2,6 @@ procedure Simulation is
 
    type Sides is (Rebel,Imperial);
 
-   type ShipPointer is access Ship;
-   ShipP : ShipPointer;
-
    type Coord is record
       X: Natural;
       Y: Natural;
@@ -12,69 +9,75 @@ procedure Simulation is
 
    -------------SAFE RANDOM
 
-   separate protected Safe_Random(size: Integer) is
-      function RandCoord return Coord;
+   protected Safe_Random is
+      function RandCoord(size: Integer) return Coord;
    end Safe_Random;
 
-   --protected Safe_Random is separate;
+   protected body Safe_Random is separate;
 
-   -------------PRINTER
-   separate protected Printer is
-      procedure PrintText(txt: in String);
-      procedure PrintMap(m: in MapM);
-   end Printer;
 
    -------------BASE
-   separate task type Base(Side: Sides) is
+   task type Base(Side: Sides) is
       entry Send_Out_Ships(n: in Integer);
       entry Ship_Lost;
       entry Destroy;
    end Base;
 
+   task body Base is separate;
+
    RBase : Base(Rebel);
    IBase : Base(Imperial);
 
    -------------SHIP
-   separate task type Ship(Azon: Integer, Side: Sides) is
+   task type Ship(Azon: Integer; Side: Sides) is
       entry Hit;
       entry Call_Back;
    end Ship;
 
+   task body Ship is separate;
+
+   type ShipPointer is access Ship;
+   ShipP : ShipPointer;
+
    -------------PROJECTILE
-   separate procedure Projectile(size : Integer, Side : Sides);
+   procedure Projectile(size : Integer; Side : Sides) is separate;
 
 
    -------------MAP
-   separate protected Map is
+   type MapTile  is record
+      SP: ShipPointer;
+      Status : Boolean;
+   end record;
+
+   type MapType is array (Integer range <>, Integer range <>) of MapTile;
+
+   protected Map is
       function GetShip(c : Coord) return ShipPointer;
       function GetStat(c : Coord) return Boolean;
       procedure Init(n : in Integer);
       procedure EndFight;
 
       private
-
       s: Integer;
-
-      type MapTile  is record
-         SP: ShipPointer;
-         Status : Boolean;
-      end record;
-
-      type MapType is array (Integer range <>, Integer range <>) of MapTile;
-
-      MapM : MapType;
-
-
+      MapM : MapType(Integer,Integer);
 
    end Map;
 
+   protected body Map is separate;
+
+   -------------PRINTER
+   protected Printer is
+      procedure PrintText(txt: in String);
+      procedure PrintMap(m: in MapType);
+   end Printer;
+
+   protected body Printer is separate;
+
 
    -------------ÁGNES
-
-
-
-
-
+   --separate task Agent(ShipP : ShipPointer) is
+   --   null
+   --end Agent;
 
 
 begin

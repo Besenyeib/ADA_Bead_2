@@ -1,9 +1,18 @@
-simulation.adb:15:04: declaration expected
-simulation.adb:22:04: declaration expected
-simulation.adb:28:04: declaration expected
-simulation.adb:38:04: declaration expected
-simulation.adb:44:04: declaration expected
-simulation.adb:48:04: declaration expected
-simulation.adb:58:07: illegal declaration in protected definition
-simulation.adb:61:07: no "record" for this "end record"
-simulation.adb:63:07: declarations must come before "begin"
+simulation-base.adb:5:12: "ShipPointer" is undefined
+simulation-base.adb:10:23: "Ship" is undefined
+simulation-base.adb:10:23: possible misspelling of "ShipP"
+simulation-base.adb:20:32: "Text_IO" is not visible (more references follow)
+simulation-base.adb:20:32: non-visible declaration at a-textio.ads:49
+simulation-base.adb:22:16: "Map" is undefined (more references follow)
+simulation-base.adb:23:16: cannot exit from program unit or accept statement
+simulation-ship.adb:21:10: "Projectile" is undefined
+simulation-projectile.adb:2:11: not fully conformant with declaration at simulation.adb:47
+simulation-projectile.adb:2:11: too few parameters
+simulation-projectile.adb:2:36: "," should be ";"
+simulation-projectile.adb:5:17: "=" should be ":="
+simulation-projectile.adb:5:19: array type required in indexed component
+simulation-projectile.adb:6:17: "=" should be ":="
+simulation-projectile.adb:6:19: array type required in indexed component
+simulation-projectile.adb:8:38: "Side" is undefined
+simulation-projectile.adb:8:38: possible misspelling of "size"
+simulation-map.adb:2:10: "body" expected

@@ -1,3 +1,4 @@
+separate(simulation)
 protected Map is
    function GetShip(c : Coord) return ShipPointer is
       return MapM(c.X,c.Y).SP;
@@ -18,6 +19,12 @@ protected Map is
    end Init;
    
    procedure EndFight is
+      for I in 1..s loop
+         for J in 1..s loop
+            if MapM(I,J).Status = True then
+               Agent(MapM(I,J).SP);
+         end loop;
+      end loop;
       
    end EndFight;
    

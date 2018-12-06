@@ -1,13 +1,16 @@
 with Ada.Numerics.Discrete_Random;
-
-protected body Safe_Random(size: Integer) is
-   subtype Rangee is Integer range 1..size;
-   function RandCoord return Coord is
+separate(simulation)
+protected body Safe_Random is
+   function RandCoord(size: Integer) return Coord is
+      subtype Rangee is Integer range 1..size;
       package rand is  new Ada.Numerics.Discrete_Random(Rangee);
       use rand;
       G : Generator;
+      c : Coord;
    begin
       Reset(G);
-      return Rando(G);
+      c.X := Random(G);
+      c.Y := Random(G);
+      return c;
    end;
 end Safe_Random;

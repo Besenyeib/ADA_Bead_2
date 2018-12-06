@@ -1,5 +1,8 @@
+with Ada.Text_IO;
+separate(simulation)
 task body Base is
    ShipCount : Integer;
+   ShipP : ShipPointer;
 begin
    
    accept Send_Out_Ships(n: in Integer) do
@@ -7,7 +10,7 @@ begin
          ShipP := new Ship(I,Side);
       end loop;
       ShipCount := n;
-   end Send_Out_Ship;
+   end Send_Out_Ships;
    
    loop
       select 

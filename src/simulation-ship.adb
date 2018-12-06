@@ -1,3 +1,4 @@
+separate(simulation)
 task body Ship is
 begin
    loop
@@ -8,11 +9,12 @@ begin
                RBase.Ship_Lost;
             else 
                IBase.Ship_Lost;
+            end if;
          end Hit;
          
       or
          accept Call_Back do
-            exit;
+            null;
          end Call_Back;
       or
          delay 0.5;

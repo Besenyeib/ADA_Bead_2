@@ -1,3 +1,4 @@
+separate(simulation)
 procedure Projectile(size : Integer, Side : Sides)is
    coordinate : Coord;
 begin
