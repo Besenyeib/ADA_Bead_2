@@ -14,7 +14,7 @@ begin
          
       or
          accept Call_Back do
-            null;
+            return;
          end Call_Back;
       or
          delay 0.5;

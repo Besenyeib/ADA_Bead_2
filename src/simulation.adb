@@ -18,7 +18,7 @@ procedure Simulation is
 
 
    -------------PROJECTILE
-   procedure Projectile;
+   procedure Projectile(size : Integer; Side : Sides) is separate;
 
 
    -------------SHIP
@@ -74,7 +74,7 @@ procedure Simulation is
 
    protected body Printer is separate;
 
-   procedure Projectile(size : Integer; Side : Sides) is separate;
+
 
 
    -------------ÁGNES

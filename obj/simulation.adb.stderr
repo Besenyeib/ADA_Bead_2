@@ -1,17 +1,4 @@
-simulation.adb:21:04: missing body for "Projectile"
+simulation-projectile.adb:7:07: "Map" is undefined (more references follow)
 simulation-ship.adb:9:16: "RBase" is undefined
 simulation-ship.adb:11:16: "IBase" is undefined
-simulation-ship.adb:21:10: too many arguments in call to "Projectile"
-simulation-ship.adb:21:21: "Map" is undefined (more references follow)
-simulation-base.adb:20:32: "Text_IO" is not visible (more references follow)
-simulation-base.adb:20:32: non-visible declaration at a-textio.ads:49
-simulation-base.adb:23:16: cannot exit from program unit or accept statement
-simulation-map.adb:4:07: misplaced "return" statement
-simulation-map.adb:5:03: missing "begin" for function "GetShip" at line 3
-simulation-map.adb:8:07: misplaced "return" statement
-simulation-map.adb:9:03: missing "begin" for function "GetStat" at line 7
-simulation-map.adb:12:07: missing "begin" for procedure "Init" at line 11
-simulation-map.adb:15:26: "=" should be ":="
-simulation-map.adb:16:30: "=" should be ":="
-simulation-map.adb:22:07: missing "begin" for procedure "EndFight" at line 21
-simulation-projectile.adb:10:33: no selector "Stat" for type "Ship" defined at simulation.adb:25
+simulation-map.adb:29:16: "Agent" is undefined

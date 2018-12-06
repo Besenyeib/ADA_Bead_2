@@ -17,16 +17,16 @@ begin
          accept Ship_Lost do
             ShipCount := ShipCount - 1;
             if ShipCount = 0 then
-               Ada.Text_IO.Put(Text_IO'Image(Side));
+               --Ada.Text_IO.Put(Text_IO'Image(Side));
                Ada.Text_IO.Put("s Lost");
                Map.EndFight;
-               exit;
+               return;
             end if;
          end Ship_Lost;
       or
          accept Destroy do
             ShipCount := 0;
-            Ada.Text_IO.Put(Text_IO'Image(Side));
+            --Ada.Text_IO.Put(Text_IO'Image(Side));
             Ada.Text_IO.Put("s Lost");
             Map.EndFight;
          end Destroy;
