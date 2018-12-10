@@ -2,3 +2,7 @@
 *.adb#
 
 *.zip
+
+*.xml
+
+*.cgpr
