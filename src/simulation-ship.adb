@@ -1,3 +1,4 @@
+with Ada.Text_IO;
 separate(simulation)
 task body Ship is
 begin
@@ -10,6 +11,7 @@ begin
             else 
                IBase.Ship_Lost;
             end if;
+            Ada.Text_IO.Put_Line("Talalat");
          end Hit;
          
       or

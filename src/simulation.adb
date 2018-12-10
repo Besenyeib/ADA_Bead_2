@@ -1,8 +1,28 @@
+with Ada.Text_IO;
 procedure Simulation is
 
    type Sides is (Rebel,Imperial);
 
+
+   -------------SHIP
+   task type Ship(Azon: Integer; Side: Sides) is
+      entry Hit;
+      entry Call_Back;
+   end Ship;
+
+      type ShipPointer is access Ship;
+
    procedure Projectile(Side : Sides);
+
+   task type Base(Side: Sides) is
+      entry Send_Out_Ships(n: in Integer);
+      entry Ship_Lost;
+      entry Destroy;
+   end Base;
+
+   RBase : Base(Rebel);
+   IBase : Base(Imperial);
+
 
    type Coord is record
       X: Integer;
@@ -21,16 +41,12 @@ procedure Simulation is
 
 
 
-   -------------SHIP
-   task type Ship(Azon: Integer; Side: Sides) is
-      entry Hit;
-      entry Call_Back;
-   end Ship;
+
 
    task body Ship is separate;
 
-   type ShipPointer is access Ship;
-   ShipP : ShipPointer;
+
+   --ShipP : ShipPointer;
 
 
    -------------ÁGNES
@@ -63,21 +79,9 @@ procedure Simulation is
    protected body Map is separate;
 
    -------------BASE
-   task type Base(Side: Sides) is
-      entry Send_Out_Ships(n: in Integer);
-      entry Ship_Lost;
-      entry Destroy;
-   end Base;
+
 
    task body Base is separate;
-
-
-   RBase : Base(Rebel);
-   IBase : Base(Imperial);
-
-   -------------PROJECTILE
-   procedure Projectile(Side : Sides) is separate;
-
 
    -------------PRINTER
    protected Printer is
@@ -85,15 +89,17 @@ procedure Simulation is
       procedure PrintMap(m: in MapType);
    end Printer;
 
+
+
    protected body Printer is separate;
 
 
-
-
-
+   -------------PROJECTILE
+   procedure Projectile(Side : Sides) is separate;
 
 
 begin
-   --  Insert code here.
-   null;
+   Ada.Text_IO.Put_Line("asd");
+   Map.Init(10);
+
 end Simulation;

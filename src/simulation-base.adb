@@ -4,7 +4,7 @@ task body Base is
    ShipCount : Integer;
    ShipP : ShipPointer;
 begin
-   
+   Ada.Text_IO.Put_Line("a");
    accept Send_Out_Ships(n: in Integer) do
       for I in 1..n loop
          ShipP := new Ship(I,Side);

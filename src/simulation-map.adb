@@ -1,3 +1,4 @@
+with Ada.Text_IO;
 separate(simulation)
 protected body Map is
    function GetShip(c : Coord) return ShipPointer is
@@ -18,6 +19,7 @@ protected body Map is
    
    procedure Init(n : in Integer) is
    begin
+      Ada.Text_IO.Put_Line("Init Start");
       s :=  n;
       for I in 1..n loop
          for J in 1..n loop
@@ -25,6 +27,7 @@ protected body Map is
             MapM(I,J).Status := False;
          end loop;
       end loop;
+      Ada.Text_IO.Put_Line("Init Done");
    end Init;
    
    procedure EndFight is
