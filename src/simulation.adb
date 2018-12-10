@@ -72,6 +72,9 @@ procedure Simulation is
    task body Base is separate;
 
 
+   RBase : Base(Rebel);
+   IBase : Base(Imperial);
+
    -------------PROJECTILE
    procedure Projectile(Side : Sides) is separate;
 
