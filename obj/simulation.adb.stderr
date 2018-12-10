@@ -1,4 +1,2 @@
-simulation-projectile.adb:7:07: "Map" is undefined (more references follow)
 simulation-ship.adb:9:16: "RBase" is undefined
 simulation-ship.adb:11:16: "IBase" is undefined
-simulation-map.adb:29:16: "Agent" is undefined

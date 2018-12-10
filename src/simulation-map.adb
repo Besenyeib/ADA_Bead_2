@@ -10,9 +10,15 @@ protected body Map is
       return MapM(c.X,c.Y).Status;
    end GetStat;
    
+   function GetSize return Integer is
+   begin
+      return s;
+   end GetSize;
+   
+   
    procedure Init(n : in Integer) is
    begin
-       s :=  n;
+      s :=  n;
       for I in 1..n loop
          for J in 1..n loop
             MapM(I,J).SP := null;
@@ -22,11 +28,12 @@ protected body Map is
    end Init;
    
    procedure EndFight is
+      A: Agent_Access;
    begin
       for I in 1..s loop
          for J in 1..s loop
             if MapM(I,J).Status = True then
-               Agent(MapM(I,J).SP);
+              A := new Agent(MapM(I,J).SP);
             end if;
          end loop;
       end loop;

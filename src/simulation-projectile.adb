@@ -1,13 +1,13 @@
 separate(simulation)
-procedure Projectile(size : Integer; Side : Sides) is
+procedure Projectile(Side : Sides) is
    coordinate : Coord;
 begin
-   coordinate := Safe_Random.RandCoord(size);
+   coordinate := Safe_Random.RandCoord(Map.GetSize);
    
    If Map.GetShip(coordinate).Side = Side then
       null;
    else
-      if Map.GetShip(coordinate).Stat = True then
+      if Map.GetStat(coordinate) = True then
          Map.GetShip(coordinate).Hit;
          
       end if;

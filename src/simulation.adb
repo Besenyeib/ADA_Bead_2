@@ -2,6 +2,7 @@ procedure Simulation is
 
    type Sides is (Rebel,Imperial);
 
+   procedure Projectile(Side : Sides);
 
    type Coord is record
       X: Integer;
@@ -17,8 +18,7 @@ procedure Simulation is
    protected body Safe_Random is separate;
 
 
-   -------------PROJECTILE
-   procedure Projectile(size : Integer; Side : Sides) is separate;
+
 
 
    -------------SHIP
@@ -32,17 +32,12 @@ procedure Simulation is
    type ShipPointer is access Ship;
    ShipP : ShipPointer;
 
-   -------------BASE
-   task type Base(Side: Sides) is
-      entry Send_Out_Ships(n: in Integer);
-      entry Ship_Lost;
-      entry Destroy;
-   end Base;
 
-   task body Base is separate;
+   -------------ÁGNES
+   task type Agent(ShipP : ShipPointer);
+   type Agent_Access is access Agent;
 
-   RBase : Base(Rebel);
-   IBase : Base(Imperial);
+   task body Agent is separate;
 
    -------------MAP
    type MapTile  is record
@@ -55,16 +50,31 @@ procedure Simulation is
    protected Map is
       function GetShip(c : Coord) return ShipPointer;
       function GetStat(c : Coord) return Boolean;
+      function GetSize return Integer;
       procedure Init(n : in Integer);
       procedure EndFight;
 
-      private
+   private
       s: Integer;
       MapM : MapType(Integer,Integer);
 
    end Map;
 
    protected body Map is separate;
+
+   -------------BASE
+   task type Base(Side: Sides) is
+      entry Send_Out_Ships(n: in Integer);
+      entry Ship_Lost;
+      entry Destroy;
+   end Base;
+
+   task body Base is separate;
+
+
+   -------------PROJECTILE
+   procedure Projectile(Side : Sides) is separate;
+
 
    -------------PRINTER
    protected Printer is
@@ -77,10 +87,7 @@ procedure Simulation is
 
 
 
-   -------------ÁGNES
-   --separate task Agent(ShipP : ShipPointer) is
-   --   null
-   --end Agent;
+
 
 
 begin

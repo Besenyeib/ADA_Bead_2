@@ -18,7 +18,7 @@ begin
          end Call_Back;
       or
          delay 0.5;
-         Projectile(Map.s,Side);
+         Projectile(Side);
       end select;
 
    end loop;
