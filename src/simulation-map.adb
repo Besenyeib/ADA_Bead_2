@@ -70,17 +70,18 @@ protected body Map is
    procedure EndFight is
       A: Agent_Access;
    begin
+      isend := True;
       --Ada.Text_IO.Put_Line("End Fight start");
       for I in 1..s loop
          for J in 1..s loop
             if MapM(I,J).Status = True then 
                A := new Agent(MapM(I,J).SP);
+               MapM(I,J).Status := False;
             end if;
-            MapM(I,J).Status := False;
+            
          end loop;
       end loop;
       --Ada.Text_IO.Put_Line("End Fight End");
-      isend := True;
       return;
    end EndFight;
 end Map;

@@ -10,10 +10,11 @@ begin
       while Map.IsEnded = False loop
          c := Safe_Random.RandCoord(s);
          if c.X = c.Y then
-            Ada.Text_IO.Put_Line("van ero");
+            Printer.PrintText("Van Ero");
+--            Ada.Text_IO.Put_Line("van ero");
             IBase.Destroy;
          end if;
-         delay 0.5;
+         delay 1.0;
       end loop;
       
    else

@@ -37,7 +37,7 @@ RV MAX_TASK_ENTRIES=2
 RV MAX_TASKS=1+
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U simulation%b		simulation.adb		dd0e76ea NE OO SU
+U simulation%b		simulation.adb		ab3f2390 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
@@ -78,14 +78,14 @@ D interfac.ads		20180524051736 5ab55268 interfaces%s
 D i-c.ads		20180524051736 5421119b interfaces.c%s
 D i-cstrin.ads		20180524051736 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20180524051736 e53d8b8e interfaces.c_streams%s
-D simulation.adb	20181212115258 8891bbe7 simulation%b
+D simulation.adb	20181212124058 95856adc simulation%b
 D simulation-agent.adb	20181212095834 b1d834a2 simulation.agent
 D simulation-base.adb	20181212105824 e79d9908 simulation.base
-D simulation-map.adb	20181212115258 ee36811f simulation.map
+D simulation-map.adb	20181212124628 87110bdc simulation.map
 D simulation-printer.adb  20181212105858 f81bbc46 simulation.printer
 D simulation-projectile.adb  20181212105604 1d36ccaa simulation.projectile
 D simulation-safe_random.adb  20181212091128 abcda16e simulation.safe_random
-D simulation-ship.adb	20181212115400 6ddccb47 simulation.ship
+D simulation-ship.adb	20181212124340 6fdec5c5 simulation.ship
 D system.ads		20180524051738 32a08138 system%s
 D s-atacco.ads		20180524051738 4c36d12f system.address_to_access_conversions%s
 D s-conca2.ads		20180524051736 02a0d7d0 system.concat_2%s
@@ -121,9 +121,9 @@ D s-valuns.ads		20180524051738 10a8ed3b system.val_uns%s
 D s-wchcon.ads		20180524051738 1b7d22d2 system.wch_con%s
 D s-win32.ads		20180524051736 b7f96285 system.win32%s
 X 1 ada.ads
-16K9*Ada 20e8 19|1r6 2r6 3r6 105r14 105r35 105r53 117r10 117r27 118r10 20|4r14
-. 4r35 4r53 6r10 6r27 21|16r16 24r13 25r13 26r13 23|6r7 13r10 16r16 18r16
-. 20r16 23r10 24r10 26r7 25|6r28 26|13r13
+16K9*Ada 20e8 19|1r6 2r6 3r6 105r14 105r35 105r53 117r10 117r27 20|4r14 4r35
+. 4r53 6r10 6r27 21|16r16 24r13 25r13 26r13 23|6r7 13r10 16r16 18r16 20r16
+. 23r10 24r10 26r7 25|6r28
 X 2 a-calend.ads
 36K13*Calendar 398e17 19|3w10 105r18 105r39 105r57 117r14 117r31 20|4r18
 . 4r39 4r57 6r14 6r31
@@ -143,10 +143,10 @@ X 8 a-nudira.ads
 X 9 a-nudira.adb
 53V16 Random[39|83]{integer} 40|392b13[25|6]
 X 13 a-textio.ads
-49K13*Text_IO 471e16 19|1w10 118r14 21|16r20 24r17 25r17 26r17 23|6r11 13r14
-. 16r20 18r20 20r20 23r14 24r14 26r11 26|13r17
+49K13*Text_IO 471e16 19|1w10 21|16r20 24r17 25r17 26r17 23|6r11 13r14 16r20
+. 18r20 20r20 23r14 24r14 26r11
 242U14*Put 21|24s25 25s25 23|13s22 16s28 18s28 20s28 23s22
-263U14*Put_Line 19|118s22 21|16s28 26s25 23|6s19 24s22 26s19 26|13s25
+263U14*Put_Line 21|16s28 26s25 23|6s19 24s22 26s19
 X 15 interfac.ads
 74M9*Unsigned_32
 77M9*Unsigned_64
@@ -154,7 +154,7 @@ X 19 simulation.adb
 4U11*Simulation 4b11 130l5 130t15 20|2r10 21|2r10 22|2r10 23|2r10 24|1r10
 . 25|2r10 26|1r10
 6E9 Sides 6e34 20r40 27r33 29r25 103r33 21|16r37 24r29 24|2r30
-6n19 Rebel{6E9} 35r17 119r34 22|59r53 23|15r33 26|25r26
+6n19 Rebel{6E9} 35r17 119r34 22|59r53 23|15r33 26|26r26
 6n25 Imperial{6E9} 36r17 22|57r53 23|17r36
 8R9 Coord 11e14 16r48 67r28 68r28 72r32 22|6r25 11r25 32r29 24|3r17 25|4r45
 . 9r11 26|4r8
@@ -164,30 +164,30 @@ X 19 simulation.adb
 16V16 RandCoord{8R9} 16>26 24|5s30 25|4b13 15t7 26|11s27
 16i26 size{integer} 25|4b23 5r42
 20T14 Ship 20d19 20d34 23l8 23e12 25r31 96b14 119r22 22|57r36 59r36 26|2b11
-. 46t4
+. 47t4
 20i19 Azon{integer} 26|7r7
-20e34 Side{6E9} 23|15r26 17r29 24|6r30 26|25r19 41r24
-21Y13 Hit 24|14s34 26|23b20 32l17 32t20
-22Y13 Call_Back 20|7s13 26|34b20 37l17 37t26
+20e34 Side{6E9} 23|15r26 17r29 24|6r30 26|26r19 42r24
+21Y13 Hit 24|14s34 26|24b20 33l17 33t20
+22Y13 Call_Back 20|7s13 26|35b20 38l17 38t26
 25P9 ShipPointer(20T14) 53r28 60r11 67r42 106r11 22|6r39
-27U14 Projectile 27>25 103b14 24|2b11 23l5 23t15 26|41s13
+27U14 Projectile 27>25 103b14 24|2b11 23l5 23t15 26|42s13
 27e25 Sidee{6E9} 103b25 24|2b22 6r37
 29T14 Base 29d19 33l8 33e12 35r12 36r12 88b14 21|3b11 32t4
 29e19 Side{6E9} 21|16r49 24r41
 30Y13 Send_Out_Ships 30>28 21|7b11 9l8 9t22 22|64s13 65s13
 30i28 n{integer} 21|8r20
-31Y13 Ship_Lost 21|13b17 20l14 20t23 26|26s25 28s25
-32Y13 Destroy 21|22b17 29l14 29t21 26|14s19
-35t4 RBase{29T14} 127r10 22|64r7 26|26r19
-36t4 IBase{29T14} 126r10 22|65r7 26|14r13 28r19
-53T14 Agent 53d20 54r32 56b14 20|3b11 10l5 10t10 22|77r25
+31Y13 Ship_Lost 21|13b17 20l14 20t23 26|27s25 29s25
+32Y13 Destroy 21|22b17 29l14 29t21 26|15s19
+35t4 RBase{29T14} 127r10 22|64r7 26|27r19
+36t4 IBase{29T14} 126r10 22|65r7 26|15r13 29r19
+53T14 Agent 53d20 54r32 56b14 20|3b11 10l5 10t10 22|78r25
 53p20 ShipP{25P9} 20|7r7
 54P9 Agent_Access(53T14) 22|71r10
 59R9 MapTile 62e14 64r66
-60p7 SP{25P9} 22|8r28 57m26 59m26 77r41 23|15r23 17r26
-61b7 Status{boolean} 22|13r28 34m21 55m23 76r26 79m23 23|15r51 17r57
+60p7 SP{25P9} 22|8r28 57m26 59m26 78r41 23|15r23 17r26
+61b7 Status{boolean} 22|13r28 34m21 55m23 77r26 79m26 23|15r51 17r57
 64A9 MapType(59R9)<integer><integer> 70r31 78r14 93r32 22|27r28 23|9r29
-66w14 Map 83b19 111r4 114r21 114r33 116r10 21|17r16 27r13 22|3b16 86l5 86t8
+66w14 Map 83b19 111r4 114r21 114r33 116r10 21|17r16 27r13 22|3b16 87l5 87t8
 . 24|5r40 6r6 10r10 13r10 14r10 15r13 16r30 16r42 26|9r12 10r13
 67V16 GetShip{25P9} 67>24 22|6b13 9l8 9t15 24|6s10 14s14
 67r24 c{8R9} 22|6b21 8r19 8r23
@@ -201,12 +201,12 @@ X 19 simulation.adb
 73U17 Init 73>22 111s8 22|38b14 68l8 68t12
 73i22 n{integer} 22|38b19 53r19 54r22 56r21 57r50 59r50 64r29 64r31 65r29
 . 65r31 66r12
-74U17 EndFight 21|17s20 27s17 22|70b14 85l8 85t16
-77i7 s{integer} 22|18r14 66r7 74r19 75r22
-78a7 MapM{64A9} 22|8r14 13r14 29r14 34r7 55r13 57r16 59r16 76r16 77r31 79r13
-79b7 isend{boolean} 22|24r14 83r7
-91w14 Printer 99b19 114r4 23|3b16 28l5 28t12 24|16r13
-92U17 PrintText 92>27 23|4b14 7t7
+74U17 EndFight 21|17s20 27s17 22|70b14 86l8 86t16
+77i7 s{integer} 22|18r14 66r7 75r19 76r22
+78a7 MapM{64A9} 22|8r14 13r14 29r14 34r7 55r13 57r16 59r16 77r16 78r31 79r16
+79b7 isend{boolean} 22|24r14 73r7
+91w14 Printer 99b19 114r4 118r9 23|3b16 28l5 28t12 24|16r13 26|13r13
+92U17 PrintText 92>27 118s17 23|4b14 7t7 26|13s21
 92a27 txt{string} 23|4b24 6r28
 93U17 PrintMap 93>26 93>41 114s12 23|9b14 27l8 27t16 24|16s21
 93a26 m{64A9} 23|9b23 15r16 15r44 17r19 17r50
@@ -222,9 +222,9 @@ X 21 simulation-base.adb
 X 22 simulation-map.adb
 53i11 I{integer} 55r18 56r16 57r21 57r45 59r21 59r45
 54i14 J{integer} 55r20 57r23 57r42 59r23 59r42
-71p7 A{19|54P9} 77m16
-74i11 I{integer} 76r21 77r36 79r18
-75i14 J{integer} 76r23 77r38 79r20
+71p7 A{19|54P9} 78m16
+75i11 I{integer} 77r21 78r36 79r21
+76i14 J{integer} 77r23 78r38 79r23
 X 23 simulation-printer.adb
 12i11 I{integer} 15r20 15r48 17r23 17r54
 14i14 J{integer} 15r18 15r46 17r21 17r52
@@ -236,7 +236,7 @@ X 25 simulation-safe_random.adb
 8r7 G{8|50R9[6]} 11r13 12r21 13r21
 9r7 c{19|8R9} 12m7 13m7 14r14
 X 26 simulation-ship.adb
-3b4 alive{boolean} 21r13 31m16 36m16
+3b4 alive{boolean} 22r13 32m16 37m16
 4r4 c{19|8R9} 11m10 12r13 12r19
 5i4 s{integer} 9m7 11r37
 X 39 s-rannum.ads

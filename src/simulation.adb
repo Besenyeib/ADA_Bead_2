@@ -115,7 +115,7 @@ begin
    --Ada.Text_IO.Put_Line("Sim Begin");
    while Map.IsEnded = False loop
       if Ada.Calendar.">"(Ada.Calendar.Clock, luktime)  and vanluk = False then
-         Ada.Text_IO.Put_Line("Luke joined");
+        Printer.PrintText("Luke joined");
          lukp := new Ship(666999,Rebel);
          vanluk := True;
       end if;
