@@ -7,26 +7,24 @@ begin
    accept Send_Out_Ships(n: in Integer) do
       ShipCount := n;
    end Send_Out_Ships;
+   
    while ShipCount > 0 loop
       select 
-         accept Ship_Lost do
-            ShipCount := ShipCount - 1;
-            if ShipCount = 0 then
-               Ada.Text_IO.Put(Sides'Image(Side));
-               Ada.Text_IO.Put("Battle Lost");
-               Ada.Text_IO.Put_Line("");
+         accept Ship_Lost do  
+            if ShipCount = 1 then
+               Ada.Text_IO.Put_Line(Sides'Image(Side) & "s Lost Battle");
                Map.EndFight;
-               return;
             end if;
+            ShipCount := ShipCount - 1;
          end Ship_Lost;
       or
          accept Destroy do
-            ShipCount := 0;
+            
             Ada.Text_IO.Put(Sides'Image(Side));
             Ada.Text_IO.Put("s Lost to Luke");
             Ada.Text_IO.Put_Line("");
             Map.EndFight;
-            return;
+            ShipCount := 0;
          end Destroy;
       end select;
    end loop;

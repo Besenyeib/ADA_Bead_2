@@ -65,6 +65,7 @@ procedure Simulation is
       function GetStat(c : Coord) return Boolean;
       function GetSize return Integer;
       function GetMapM return MapType;
+      function IsEnded return Boolean;
       procedure SetStat(c : in Coord);
       procedure Init(n : in Integer);
       procedure EndFight;
@@ -72,7 +73,7 @@ procedure Simulation is
    private
       s: Integer;
       MapM : MapType(1..10,1..10);
-
+      isend : Boolean := False;
 
    end Map;
 
@@ -97,12 +98,17 @@ procedure Simulation is
    -------------PROJECTILE
    procedure Projectile(Sidee : Sides) is separate;
 
-
 begin
-   Ada.Text_IO.Put_Line("Sim Begin");
-   Map.Init(4);
+
+   Map.Init(6);
    --RBase.Send_Out_Ships(8);
    --IBase.Send_Out_Ships(8);
    Printer.PrintMap(Map.GetMapM,Map.GetSize);
+   Ada.Text_IO.Put_Line("Sim Begin");
+   while Map.IsEnded = False loop
+      null;
+   end loop;
+   Ada.Text_IO.Put_Line("ASD");
+   return;
 
 end Simulation;

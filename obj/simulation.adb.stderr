@@ -1,2 +1,2 @@
-simulation-map.adb:57:12: warning: potentially blocking operation in protected operation
-simulation-map.adb:58:12: warning: potentially blocking operation in protected operation
+simulation-map.adb:64:12: warning: potentially blocking operation in protected operation
+simulation-map.adb:65:12: warning: potentially blocking operation in protected operation

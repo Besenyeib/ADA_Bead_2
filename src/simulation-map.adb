@@ -1,6 +1,8 @@
 
 separate(simulation)
 protected body Map is
+  
+   
    function GetShip(c : Coord) return ShipPointer is
    begin
       return MapM(c.X,c.Y).SP;
@@ -16,6 +18,11 @@ protected body Map is
       return s;
    end GetSize;
   
+   
+   function IsEnded return Boolean is
+   begin
+      return isend;
+   end IsEnded;
    
    function GetMapM return MapType is
    begin
@@ -72,8 +79,8 @@ protected body Map is
             MapM(I,J).Status := False;
          end loop;
       end loop;
+      Ada.Text_IO.Put_Line("End Fight End");
+      isend := True;
       return;
    end EndFight;
-   
-   
 end Map;
