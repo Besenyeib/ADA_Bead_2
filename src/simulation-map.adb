@@ -49,7 +49,7 @@ protected body Map is
       --      Ada.Text_IO.Put_Line("Init Done");
       
       
-      Ada.Text_IO.Put_Line("Init Start");
+      --Ada.Text_IO.Put_Line("Init Start");
       for I in 1..n loop
          for J in 1..n loop
             MapM(I,J).Status := True;
@@ -64,13 +64,13 @@ protected body Map is
       RBase.Send_Out_Ships((n*n)/2);
       IBase.Send_Out_Ships((n*n)/2);
       s := n;
-      Ada.Text_IO.Put_Line("Init End");
+      --Ada.Text_IO.Put_Line("Init End");
    end Init;
    
    procedure EndFight is
       A: Agent_Access;
    begin
-      Ada.Text_IO.Put_Line("End Fight start");
+      --Ada.Text_IO.Put_Line("End Fight start");
       for I in 1..s loop
          for J in 1..s loop
             if MapM(I,J).Status = True then 
@@ -79,7 +79,7 @@ protected body Map is
             MapM(I,J).Status := False;
          end loop;
       end loop;
-      Ada.Text_IO.Put_Line("End Fight End");
+      --Ada.Text_IO.Put_Line("End Fight End");
       isend := True;
       return;
    end EndFight;

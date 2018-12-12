@@ -9,10 +9,13 @@ begin
    else
       if Map.GetStat(coordinate) = True then
          --Ada.Text_IO.Put_Line("Loves Talalt");
+         --s := "";
          Map.SetStat(coordinate);
          Map.GetShip(coordinate).Hit;
-         Printer.PrintMap(Map.GetMapM,Map.GetSize); 
-                 
+         if Map.IsEnded = False then
+            Printer.PrintMap(Map.GetMapM,Map.GetSize); 
+         end if;
+       
       end if;
 end if;
 

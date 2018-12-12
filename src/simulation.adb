@@ -5,6 +5,16 @@ procedure Simulation is
 
    type Sides is (Rebel,Imperial);
 
+   type Coord is record
+      X: Integer;
+      Y: Integer;
+   end record;
+
+   -------------SAFE RANDOM
+
+   protected Safe_Random is
+      function RandCoord(size: Integer) return Coord;
+   end Safe_Random;
 
    -------------SHIP
    task type Ship(Azon: Integer; Side: Sides) is
@@ -26,21 +36,14 @@ procedure Simulation is
    IBase : Base(Imperial);
 
 
-   type Coord is record
-      X: Integer;
-      Y: Integer;
-   end record;
 
-   -------------SAFE RANDOM
 
-   protected Safe_Random is
-      function RandCoord(size: Integer) return Coord;
-   end Safe_Random;
+
 
    protected body Safe_Random is separate;
 
 
-   task body Ship is separate;
+
 
 
    --ShipP : ShipPointer;
@@ -90,6 +93,7 @@ procedure Simulation is
       procedure PrintMap(m: in MapType; s: in Integer);
    end Printer;
 
+   task body Ship is separate;
 
 
    protected body Printer is separate;
@@ -98,17 +102,29 @@ procedure Simulation is
    -------------PROJECTILE
    procedure Projectile(Sidee : Sides) is separate;
 
+   luktime : Ada.Calendar.Time := Ada.Calendar."+"( Ada.Calendar.Clock, 5.0 );
+   lukp : ShipPointer;
+   vanluk : Boolean := False;
+
 begin
 
    Map.Init(6);
    --RBase.Send_Out_Ships(8);
    --IBase.Send_Out_Ships(8);
    Printer.PrintMap(Map.GetMapM,Map.GetSize);
-   Ada.Text_IO.Put_Line("Sim Begin");
+   --Ada.Text_IO.Put_Line("Sim Begin");
    while Map.IsEnded = False loop
-      null;
+      if Ada.Calendar.">"(Ada.Calendar.Clock, luktime)  and vanluk = False then
+         Ada.Text_IO.Put_Line("Luke joined");
+         lukp := new Ship(666999,Rebel);
+         vanluk := True;
+      end if;
    end loop;
-   Ada.Text_IO.Put_Line("ASD");
+
+   --Ada.Text_IO.Put_Line("VÉGA");
+
+   abort IBase;
+   abort RBase;
    return;
 
 end Simulation;

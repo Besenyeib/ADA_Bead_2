@@ -12,6 +12,7 @@ begin
       select 
          accept Ship_Lost do  
             if ShipCount = 1 then
+               --Ada.Text_IO.Put_Line("LOST");
                Ada.Text_IO.Put_Line(Sides'Image(Side) & "s Lost Battle");
                Map.EndFight;
             end if;
