@@ -75,7 +75,7 @@ procedure Simulation is
 
    private
       s: Integer;
-      MapM : MapType(1..10,1..10);
+      MapM : MapType(1..20,1..20);
       isend : Boolean := False;
 
    end Map;
@@ -108,7 +108,7 @@ procedure Simulation is
 
 begin
 
-   Map.Init(6);
+   Map.Init(20);
    --RBase.Send_Out_Ships(8);
    --IBase.Send_Out_Ships(8);
    Printer.PrintMap(Map.GetMapM,Map.GetSize);

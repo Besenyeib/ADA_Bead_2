@@ -53,7 +53,7 @@ protected body Map is
       for I in 1..n loop
          for J in 1..n loop
             MapM(I,J).Status := True;
-            if i <= n/2 then
+            if J <= n/2 then
                MapM(I,J).SP := new Ship((J+(I-1)*n),Imperial);
             else
                MapM(I,J).SP := new Ship((J+(I-1)*n),Rebel);
@@ -61,8 +61,10 @@ protected body Map is
          end loop ;
       end loop;
       
-      RBase.Send_Out_Ships((n*n)/2);
+      
       IBase.Send_Out_Ships((n*n)/2);
+      
+      RBase.Send_Out_Ships((n*n)/2);
       s := n;
       --Ada.Text_IO.Put_Line("Init End");
    end Init;

@@ -12,9 +12,9 @@ protected body Printer is
       for I in 1..s loop 
          Ada.Text_IO.Put("|");
          for J in 1..s loop 
-            if m(J,I).SP.Side = Rebel  and m(J,I).Status = True then
+            if m(I,J).SP.Side = Rebel  and m(I,J).Status = True then
                Ada.Text_IO.Put("R ");
-            elsif m(J,I).SP.Side = Imperial  and m(J,I).Status = True then
+            elsif m(I,J).SP.Side = Imperial  and m(I,J).Status = True then
                Ada.Text_IO.Put("I ");
             else
                Ada.Text_IO.Put("  ");
