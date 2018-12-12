@@ -1,4 +1,6 @@
 with Ada.Text_IO;
+with Ada.Numerics.Discrete_Random;
+with Ada.Calendar;
 procedure Simulation is
 
    type Sides is (Rebel,Imperial);
@@ -10,9 +12,9 @@ procedure Simulation is
       entry Call_Back;
    end Ship;
 
-      type ShipPointer is access Ship;
+   type ShipPointer is access Ship;
 
-   procedure Projectile(Side : Sides);
+   procedure Projectile(Sidee : Sides);
 
    task type Base(Side: Sides) is
       entry Send_Out_Ships(n: in Integer);
@@ -38,11 +40,6 @@ procedure Simulation is
    protected body Safe_Random is separate;
 
 
-
-
-
-
-
    task body Ship is separate;
 
 
@@ -61,18 +58,22 @@ procedure Simulation is
       Status : Boolean;
    end record;
 
+   subtype sint is Integer range 0..20;
+
    type MapType is array (Integer range <>, Integer range <>) of MapTile;
 
    protected Map is
       function GetShip(c : Coord) return ShipPointer;
       function GetStat(c : Coord) return Boolean;
       function GetSize return Integer;
+      function GetMapM return MapType;
+      procedure SetStat(c : in Coord);
       procedure Init(n : in Integer);
       procedure EndFight;
 
    private
       s: Integer;
-      MapM : MapType(Integer,Integer);
+      MapM : MapType(1..10,1..10);
 
    end Map;
 
@@ -95,11 +96,14 @@ procedure Simulation is
 
 
    -------------PROJECTILE
-   procedure Projectile(Side : Sides) is separate;
+   procedure Projectile(Sidee : Sides) is separate;
 
 
 begin
-   Ada.Text_IO.Put_Line("asd");
-   Map.Init(10);
+   Ada.Text_IO.Put_Line("Sim Begin");
+   Map.Init(4);
+   --RBase.Send_Out_Ships(8);
+   --IBase.Send_Out_Ships(8);
+   Printer.PrintMap(Map.GetMapM);
 
 end Simulation;

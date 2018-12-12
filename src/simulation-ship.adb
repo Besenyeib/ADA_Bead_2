@@ -1,25 +1,23 @@
-with Ada.Text_IO;
 separate(simulation)
 task body Ship is
 begin
    loop
-      
       select
          accept Hit do
+            Ada.Text_IO.Put_Line("Eltalaltak");
             if Side = Rebel then
                RBase.Ship_Lost;
             else 
                IBase.Ship_Lost;
             end if;
-            Ada.Text_IO.Put_Line("Talalat");
          end Hit;
-         
       or
          accept Call_Back do
-            return;
+            Ada.Text_IO.Put_Line("Visszahivva");
          end Call_Back;
       or
          delay 0.5;
+         Ada.Text_IO.Put_Line("Lo");
          Projectile(Side);
       end select;
 

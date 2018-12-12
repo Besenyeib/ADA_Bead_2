@@ -1,4 +1,4 @@
-with Ada.Calendar;
+
 separate(simulation)
 task body Agent is
    endtime : Ada.Calendar.Time := Ada.Calendar."+"( Ada.Calendar.Clock, 1.0 );

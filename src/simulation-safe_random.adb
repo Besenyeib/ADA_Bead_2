@@ -1,4 +1,4 @@
-with Ada.Numerics.Discrete_Random;
+
 separate(simulation)
 protected body Safe_Random is
    function RandCoord(size: Integer) return Coord is
@@ -11,6 +11,8 @@ protected body Safe_Random is
       Reset(G);
       c.X := Random(G);
       c.Y := Random(G);
+      c.X := 1;
+      c.Y := 1;
       return c;
    end;
 end Safe_Random;
