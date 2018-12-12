@@ -11,8 +11,6 @@ protected body Safe_Random is
       Reset(G);
       c.X := Random(G);
       c.Y := Random(G);
-      c.X := 1;
-      c.Y := 1;
       return c;
    end;
 end Safe_Random;

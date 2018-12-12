@@ -8,8 +8,10 @@ begin
    else
       if Map.GetStat(coordinate) = True then
          Ada.Text_IO.Put_Line("Loves Talalt");
-         Map.GetShip(coordinate).Hit;
+            
          Map.SetStat(coordinate);
+         Map.GetShip(coordinate).Hit;
+         Printer.PrintMap(Map.GetMapM,Map.GetSize);
       end if;
 end if;
 

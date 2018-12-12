@@ -58,8 +58,6 @@ procedure Simulation is
       Status : Boolean;
    end record;
 
-   subtype sint is Integer range 0..20;
-
    type MapType is array (Integer range <>, Integer range <>) of MapTile;
 
    protected Map is
@@ -75,6 +73,7 @@ procedure Simulation is
       s: Integer;
       MapM : MapType(1..10,1..10);
 
+
    end Map;
 
    protected body Map is separate;
@@ -87,7 +86,7 @@ procedure Simulation is
    -------------PRINTER
    protected Printer is
       procedure PrintText(txt: in String);
-      procedure PrintMap(m: in MapType);
+      procedure PrintMap(m: in MapType; s: in Integer);
    end Printer;
 
 
@@ -104,6 +103,6 @@ begin
    Map.Init(4);
    --RBase.Send_Out_Ships(8);
    --IBase.Send_Out_Ships(8);
-   Printer.PrintMap(Map.GetMapM);
+   Printer.PrintMap(Map.GetMapM,Map.GetSize);
 
 end Simulation;

@@ -7,7 +7,7 @@ begin
    accept Send_Out_Ships(n: in Integer) do
       ShipCount := n;
    end Send_Out_Ships;
-   loop
+   while ShipCount > 0 loop
       select 
          accept Ship_Lost do
             ShipCount := ShipCount - 1;
